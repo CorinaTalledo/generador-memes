@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/76f1588c46.js" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@700&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+
+    <title>Generador de memes</title>
+</head>
+<body>
+
+    <div class="container-meme">
+        <header>
+            <h2>Generador de Memes</h2>
+        
+            <div class="container-button">
+                <button>
+                    <i class="fa-solid fa-file-image"></i>Imagen
+                </button>
+
+                <button>
+                    <i class="fa-solid fa-font"></i>Texto
+                </button>
+
+                <button>
+                    <i class="fa-regular fa-lightbulb"></i>Modo oscuro
+                </button>
+            </div>
+        </header>
+
+
+        <main>
+            <div class="meme-box">
+                <h3>TOP TEXT</h3>
+
+                <div class="container-img">
+                    <img src="" alt="">
+                </div>
+
+                <h3>BOTTOM TEXT</h3>
+            </div>
+        </main>
+    </div>
+
+
+    <aside>
+        <h4>IMAGEN</h4>
+        
+        <form>
+            <label>URL
+                <input type="url">
+            </label>
+            
+            <div class="color-select">
+                <p>FONDO</p>
+                <label class="half-color">
+                    <input type="color" value="#FFFFFF">
+                    <span>#FFFFFF</span>
+                </label>
+
+                <label>
+                    <select name="" id="">Ninguno
+                        <option value="Ninguno">Ninguno</option>
+                        <option value="Aclarar">Aclarar</option>
+                        <option value="Oscurecer">Oscurecer</option>
+                        <option value="Diferencia">Diferencia</option>
+                        <option value="Luminosidad">Luminosidad</option>
+                        <option value="Multiplicar">Multiplicar</option>
+                    </select>
+                </label>
+            </div>
+
+            <p>FILTROS</p>            
+            <label>BRILLO
+                <input type="range">
+            </label>
+            
+
+            <label>OPACIDAD
+                <input type="range">
+            </label>
+            
+
+            <label>CONTRASTE
+                <input type="range">
+            </label>
+            
+
+            <label>DESENFOQUE
+                <input type="range">
+            </label>
+            
+
+            <label>ESCALA DE GRISES
+                <input type="range">
+            </label>
+            
+
+            <label>SEPIA
+                <input type="range">
+            </label>
+            
+
+            <label>HUE
+                <input type="range">
+            </label>
+            
+
+            <label>SATURADO
+                <input type="range">
+            </label>
+            
+
+            <label>NEGATIVO
+                <input type="range">
+            </label>
+
+            <input type="reset">
+        </form>
+
+    </aside>
+
+<!-- 
+    <aside>
+        TEXTO
+
+    </aside> -->
+
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>

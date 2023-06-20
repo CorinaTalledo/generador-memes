@@ -1,0 +1,191 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 1px;
+}
+
+
+body{
+    display: flex;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.container-meme{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+h2{
+    font-size: 35rem;
+    font-weight: lighter;
+}
+
+
+header{
+    min-height: 16vh;
+    background-color: #191e2b;
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.container-button{
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+}
+
+
+.container-button button{
+    font-size: 15px;
+    background-color: transparent;
+    border: transparent;
+    color: aliceblue;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+
+.container-button i{
+    font-size: 15px;
+    margin-right: 6px;
+}
+
+
+main{
+    background-color: #30343f
+}
+
+
+.meme-box{
+    min-height: 84vh;
+    width: 40%;
+    background-color: aliceblue;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+
+h3{ 
+    font-size: 52rem;
+    font-family: 'Anton', sans-serif;
+}
+
+
+.container-img{
+    background-color: black;
+    height: 380px;
+}
+
+
+aside{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    background-color: #252935;
+    position: fixed;
+    right: 0;
+    padding: 30px 15px;
+    height: 100%;
+    overflow: scroll;
+}
+
+
+h4{
+    font-size: 18rem;
+    font-weight: bolder;
+    color: aliceblue;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+}
+
+
+label{
+    color: aliceblue;
+    font-weight: bolder;
+    font-size: 10rem;
+    margin: 5% 0%;
+}
+
+input{
+    font-size: 15rem;
+    margin-top: 5%;
+    color: aliceblue;
+}
+
+
+input[type="url"]{     
+    background-color: #393e49;
+    border: none;
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+input[type="range"]{     
+    width: 100%;
+    height: 12%;
+}
+
+option{
+    font-size: 10rem;
+}
+
+
+/* .half-color{
+
+} */
+
+
+.half-color input{
+    background-color: transparent;
+    border: none;
+}
+
+
+select{
+    font-size: 30rem;
+}
+
+span{
+    font-size: 10rem;
+}
+
+.color-fondo{
+    font-size: 30rem;
+    display: flex;
+}
+
+
+p{
+    font-size: 15rem;
+    color: aliceblue;
+}
+
+
+
+
+
+
+
+
+
