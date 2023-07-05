@@ -7,30 +7,66 @@
 
 
 body{
-    display: flex;
     font-family: 'Lato', sans-serif;
+    color: aliceblue;
 }
 
 
-.container-meme{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
+/* 
+-------------------------
+CSS TIPOGRAFIAS
+-------------------------
+*/
 
 h2{
     font-size: 35rem;
-    font-weight: lighter;
+}
+
+
+.checkbox label{
+    font-size: 10rem;
+}
+
+
+.text-size-s{
+    font-size: 12rem;
+}
+
+
+.text-size-m{
+    font-size: 13rem;
+}
+
+
+.text-size-l{
+    font-size: 15rem;
+}
+
+
+
+/* --------------- */
+
+/* DISPLAY */
+
+.flex-container{
+    display: flex;
+}
+
+/* --------------- */
+
+/* CSS HEADER Y MAIN */
+
+
+.container-mayor{
+    flex-direction: column;
+    width: 100%;
 }
 
 
 header{
     min-height: 16vh;
     background-color: #191e2b;
-    display: flex;
     flex-direction: column;
-    color: aliceblue;
     text-align: center;
     justify-content: space-around;
     align-items: center;
@@ -38,66 +74,97 @@ header{
 
 
 .container-button{
-    display: flex;
     justify-content: space-around;
     width: 20%;
 }
 
 
 .container-button button{
-    font-size: 15px;
     background-color: transparent;
-    border: transparent;
-    color: aliceblue;
-    padding: 8px;
-    border-radius: 4px;
 }
 
 
 .container-button i{
-    font-size: 15px;
     margin-right: 6px;
 }
 
 
+/* --------------------
+CSS MAIN
+-------------------- */
+
+
 main{
-    background-color: #30343f
+    background-color: #30343f;
+    min-height: 84vh;
 }
 
 
 .meme-box{
-    min-height: 84vh;
+    height: 525px;
     width: 40%;
     background-color: aliceblue;
     margin: auto;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
 }
 
 
-h3{ 
-    font-size: 52rem;
+.texto-meme{ 
+    border: 1px solid black;
+    box-sizing: content-box;
+}
+
+
+.texto-meme p{
+    font-size: 40rem;
     font-family: 'Anton', sans-serif;
+    color: #191e2b;
 }
 
 
-.container-img{
+.meme-img{
     background-color: black;
-    height: 380px;
+    height: 65%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+
+.boton-descargar{
+    background-color: #2e7d32;
+    border: none;
+    border-radius: 4px;
+    padding: 15px 20px;
+    margin: auto;
+    margin-top: 1%;
+    color: aliceblue;
+}
+
+
+.boton-descargar i{
+    margin-right: 15px;
+}
+
+
+.boton-descargar:hover{
+    background-color: #1B5E20;
+}
+
+
+/* ------------------- */
+
+/* ASIDES */
+
+/* CSS GENERAL DE ASIDES */
 
 aside{
-    display: flex;
     flex-direction: column;
     width: 15%;
-    background-color: #252935;
-    position: fixed;
-    right: 0;
-    padding: 30px 15px;
     height: 100%;
+    background-color: #252935;
+    padding: 30px 15px;
     overflow: scroll;
 }
 
@@ -105,85 +172,219 @@ aside{
 h4{
     font-size: 18rem;
     font-weight: bolder;
-    color: aliceblue;
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom: 20%;
 }
 
 
 form{
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 90%;
+    justify-content: space-around;
+    height: 100%;
 }
 
 
-label{
+section, form{
+    border: 1px solid white;
+}
+
+
+input, textarea{
+    margin: 4% 0%;
+}
+
+/* .padding-control-box{
+
+} */
+
+
+.form-control-box{
     color: aliceblue;
-    font-weight: bolder;
-    font-size: 10rem;
-    margin: 5% 0%;
-}
-
-input{
-    font-size: 15rem;
-    margin-top: 5%;
-    color: aliceblue;
-}
-
-
-input[type="url"]{     
+    padding: 8px;
+    border-radius: 4px;
     background-color: #393e49;
     border: none;
+    box-sizing: border-box;
     height: 35px;
-    width: 100%;
-    border-radius: 5px;
 }
+
+
+.form-control-box:hover{
+    background-color: #4E5565;
+}
+
+
+.form-control-box:focus{
+    outline: none;
+    background-color: #4E5565;
+}
+
+
+/* ASIDE IMAGEN */
+
+
+.img-aside{
+    position: fixed;
+    right: 0;
+}
+
+
+textarea, input[type="url"]{     
+    width: 100%;
+    padding: 0px 5px;
+}
+
+
+.container-color-select{
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.half-color{
+    width: 48%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+input[type="color"]{     
+    background-color: transparent;
+    border: none;
+    display: block;
+    width: 18px;
+}
+
+
+.color-rounded::-webkit-color-swatch-wrapper,
+.color-rounded::-webkit-color-swatch{
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    border: none;
+}
+
 
 input[type="range"]{     
     width: 100%;
     height: 12%;
 }
 
-option{
-    font-size: 10rem;
+
+/* --------------------- */
+
+
+.text-aside{
+    position: fixed;
+    left: 0;
 }
 
 
-/* .half-color{
 
-} */
-
-
-.half-color input{
-    background-color: transparent;
-    border: none;
+.container-text-colors{
+    border: 1px solid rgb(225, 6, 6);
+    width: 100%;
+    justify-content: space-between;
 }
 
+
+.container-filtros{
+    flex-direction: column;
+    border: 1px solid white;
+}
+
+
+.filtro{
+    margin-bottom: 5%;
+}
+
+
+.half-text-color{
+    width: 100%;
+    align-items: center;
+}
 
 select{
-    font-size: 30rem;
+    width: 45%;
+    padding-left: 5px;
 }
+
+
+.container-tamaño-alineacion{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.tipografia{
+    width: 100%;
+}
+
+
+.tamaño-tipografia{
+    width: 50%;
+    padding-left: 5px;
+}
+
 
 span{
-    font-size: 10rem;
-}
-
-.color-fondo{
-    font-size: 30rem;
-    display: flex;
+    display: block;
 }
 
 
-p{
-    font-size: 15rem;
-    color: aliceblue;
+.container-button-contorno{
+    justify-content: space-between;
+}
+
+
+.container-button-contorno button{
+    padding: 6%;
+}
+
+
+input[id="espaciado"]{
+    width: 100%;
+    padding-left: 5px;
+}
+
+
+.interlineado{
+    width: 100%;
 }
 
 
 
 
+input[type="reset"]{
+    width: 80%;
+    margin-top: 10%;
+}
+
+
+
+/* ----------------------------- 
+
+- PARA PASAR LOS INPUT DE TEXTO SUPERIOR E INFERIOR >> INNER HTML
+
+- MODO CLARO Y MODO OSCURO >> TOGGLE
+
+- TOP TEXT Y BUTTOM TEXT NO SON PLACEHOLDERS, SON VALUES.
+
+----------------------
+
+PREGUNTAS:
+
+1) Como hacer que si el texto es muy largo, baje solo de linea
+
+
+-----------------------
+
+QUEDA ORDENAR DESDE HALF-COLOR DEL ASIDE IMG
+
+
+
+*/
 
 
 
