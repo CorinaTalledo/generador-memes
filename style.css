@@ -52,6 +52,11 @@ h2{
     display: flex;
 }
 
+
+.is-hidden{
+    display: none;
+}
+
 /* --------------- */
 
 /* CSS HEADER Y MAIN */
@@ -101,7 +106,7 @@ main{
 
 
 .meme-box{
-    height: 525px;
+    height: 80vh;
     width: 40%;
     background-color: aliceblue;
     margin: auto;
@@ -198,7 +203,7 @@ input, textarea{
 } */
 
 
-.form-control-box{
+.ctrl-btn-inputs{
     color: aliceblue;
     padding: 8px;
     border-radius: 4px;
@@ -209,19 +214,19 @@ input, textarea{
 }
 
 
-.form-control-box:hover{
+.ctrl-btn-inputs:hover{
     background-color: #4E5565;
 }
 
 
-.form-control-box:focus{
+.ctrl-btn-inputs:focus{
     outline: none;
     background-color: #4E5565;
 }
 
 
-/* ASIDE IMAGEN */
 
+/* ASIDE IMAGEN */
 
 .img-aside{
     position: fixed;
@@ -265,29 +270,6 @@ input[type="color"]{
 }
 
 
-input[type="range"]{     
-    width: 100%;
-    height: 12%;
-}
-
-
-/* --------------------- */
-
-
-.text-aside{
-    position: fixed;
-    left: 0;
-}
-
-
-
-.container-text-colors{
-    border: 1px solid rgb(225, 6, 6);
-    width: 100%;
-    justify-content: space-between;
-}
-
-
 .container-filtros{
     flex-direction: column;
     border: 1px solid white;
@@ -296,6 +278,34 @@ input[type="range"]{
 
 .filtro{
     margin-bottom: 5%;
+}
+
+
+input[type="range"]{     
+    width: 100%;
+    height: 12%;
+}
+
+
+input[type="reset"]{
+    width: 80%;
+    margin-top: 10%;
+}
+
+
+/* ASIDE TEXTO */
+
+
+.text-aside{
+    position: fixed;
+    right: 0;
+}
+
+
+.container-text-colors{
+    border: 1px solid rgb(225, 6, 6);
+    width: 100%;
+    justify-content: space-between;
 }
 
 
@@ -354,35 +364,46 @@ input[id="espaciado"]{
 }
 
 
+/* ---------------------*/
+
+/* MODO CLARO */
 
 
-input[type="reset"]{
-    width: 80%;
-    margin-top: 10%;
+.light-body{
+    color: #424242;
+}
+
+.light-header, .light-ctrl-btn-inputs{
+    background-color: #e0e0e0;
+}
+
+.light-main{
+    background-color: #eeeeee;
+}
+
+
+.light-aside{
+    background-color: #fafafa;
+}
+
+
+.light-ctrl-btn-inputs:hover, .light-ctrl-btn-inputs:focus{
+    background-color: #bdbdbd;
 }
 
 
 
 /* ----------------------------- 
 
-- PARA PASAR LOS INPUT DE TEXTO SUPERIOR E INFERIOR >> INNER HTML
-
-- MODO CLARO Y MODO OSCURO >> TOGGLE
-
-- TOP TEXT Y BUTTOM TEXT NO SON PLACEHOLDERS, SON VALUES.
-
-----------------------
 
 PREGUNTAS:
 
 1) Como hacer que si el texto es muy largo, baje solo de linea
 
+2) No puedo terminar de ponerle el hide a los divs de los textos del meme
+
 
 -----------------------
-
-QUEDA ORDENAR DESDE HALF-COLOR DEL ASIDE IMG
-
-
 
 */
 

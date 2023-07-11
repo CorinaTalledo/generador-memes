@@ -14,176 +14,50 @@
         href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@700&family=Open+Sans:wght@600&display=swap"
         rel="stylesheet">
 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <title>Generador de memes</title>
 
 </head>
 
-<body class="flex-container">
-
-    <aside class="text-aside flex-container">
-        <h4>TEXTO</h4>
-
-        <form class="flex-container">
-            <section>
-                <div>
-                    <label for="texto-superior" class="text-size-s">SUPERIOR</label>
-                    <textarea id="texto-superior" class="text-size-m form-control-box"  placeholder="TOP TEXT"></textarea>
-                </div>
-
-
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox-superior">
-                    <label for="checkbox-superior">Sin texto superior</label>
-                </div>
-            </section>
-
-            <section>
-                <div>
-                    <label for="texto-inferior" class="text-size-s">INFERIOR</label>
-                    <textarea placeholder="BOTTOM TEXT" id="texto-inferior" class="text-size-m form-control-box"></textarea>
-                </div>
-
-
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox-inferior">
-                    <label for="checkbox-inferior">Sin texto inferior</label>
-                </div>
-            </section>
-
-
-            <section class="container-fuente">
-                <label for="fuente" class="text-size-s">FUENTE</label>
-
-                <select id="fuente" class="tipografia text-size-m form-control-box">Impact
-                    <option value="Arial" class="text-size-m">Arial</option>
-                    <option value="Arial Black" class="text-size-m">Arial Black</option>
-                    <option value="Andale" class="text-size-m">Andale Mono</option>
-                    <option value="Comic Sans" class="text-size-m">Comic Sans MS</option>
-                    <option value="Helvetica" class="text-size-m">Helvetica</option>
-                    <option value="Impact" class="text-size-m">Impact</option>
-                    <option value="Verdana" class="text-size-m">Verdana</option>
-                    <option value="Times" class="text-size-m">Times New Roman</option>
-                    <option value="American" class="text-size-m">American Typewriter</option>
-                </select>
-
-                <div class="container-tamaño-alineacion flex-container">
-                    <input type="number" value="40" class="tamaño-tipografia text-size-m form-control-box">
-
-                    <button class="form-control-box">
-                        <i class="fa-solid fa-align-left text-size-l"></i>
-                    </button>
-
-
-                    <button class="form-control-box">
-                        <i class="fa-solid fa-align-center text-size-l"></i>
-                    </button>
-
-
-                    <button class="form-control-box">
-                        <i class="fa-solid fa-align-right text-size-l"></i>
-                    </button>
-                </div>
-
-            </section>
-
-
-            <section>
-                <div class="container-text-colors flex-container">
-                    <div>
-                        <label for="color" class="text-size-s">COLOR</label>
-
-                        <div>
-                            <div class="half-text-color flex-container form-control-box">
-                                <input type="color" class="color-rounded half-color" id="color" value="#000000">
-                                <span class="text-size-m">#000000</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div>
-                        <label for="fondo" class="text-size-s">FONDO</label>
-
-                        <div>
-                            <div class="half-text-color flex-container form-control-box">
-                                <input type="color" value="#FFFFFF" class="color-rounded half-color" id="fondo">
-                                <span class="text-size-m">#FFFFFF</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox-fondo">
-                    <label for="checkbox-fondo">Fondo transparente</label>
-                </div>
-            </section>
-
-
-            <section>
-                <p class="text-size-s">CONTORNO</p>
-
-                <div class="container-button-contorno flex-container">
-                    <button class="text-size-m form-control-box">Ninguno</button>
-                    <button class="text-size-m form-control-box">Claro</button>
-                    <button class="text-size-m form-control-box">Oscuro</button>
-                </div>
-            </section>
-
-
-            <section>
-                <label for="espaciado" class="text-size-s">ESPACIADO</label>
-                <input type="number" id="espaciado" value="35"  class="text-size-m form-control-box">
-            </section>
-
-
-            <section>
-                <label for="interlineado" class="text-size-s">INTERLINEADO</label>
-
-                <select id="interlineado" class="interlineado text-size-m form-control-box">1.2
-                    <option value="0.8" class="text-size-m">0.8</option>
-                    <option value="1" class="text-size-m">1</option>
-                    <option value="1.2" class="text-size-m">1.2</option>
-                    <option value="1.5" class="text-size-m">1.5</option>
-                    <option value="2" class="text-size-m">2</option>
-                    <option value="2.5" class="text-size-m">2.5</option>
-                </select>
-            </section>
-        </form>
-    </aside>
-
+<body class="flex-container" id="body">
 
     <div class="container-mayor flex-container">
-        <header class="flex-container">
+        <header class="flex-container" id="header">
             <h2>Generador de Memes</h2>
 
             <div class="container-button flex-container">
-                <button class="text-size-l form-control-box">
+                <button class="text-size-l ctrl-btn-inputs" id="img-button">
                     <i class="fa-solid fa-file-image text-size-l"></i>Imagen
                 </button>
 
-                <button class="text-size-l form-control-box">
+                <button class="text-size-l ctrl-btn-inputs" id="text-button">
                     <i class="fa-solid fa-font text-size-l"></i>Texto
                 </button>
 
-                <button class="text-size-l form-control-box">
+                <button class="text-size-l ctrl-btn-inputs" id="dark-button">
                     <i class="fa-regular fa-lightbulb text-size-l"></i>Modo oscuro
+                </button>
+
+                <button class="text-size-l ctrl-btn-inputs is-hidden" id="light-button">
+                    <i class="fa-solid fa-lightbulb text-size-l"></i>Modo claro
                 </button>
             </div>
         </header>
 
 
-        <main>
+        <main id="main">
             <div class="meme-box flex-container">
-                <div class="texto-meme">
-                    <p>TOP TEXT</p>
+                <div class="texto-meme" id="top-text-container">
+                    <p id="meme-top-text">TOP TEXT</p>
                 </div>
 
                 <div class="meme-img" id="meme-img"></div>
 
-                <div class="texto-meme">
-                    <p>sdfñlksñfñsknlsmcñs,oekirjgnvmañalkdñlakd</p>
+                <div class="texto-meme" id="bottom-text-container">
+                    <p id="meme-bottom-text">BOTTOM TEXT</p>
                 </div>
             </div>
 
@@ -195,27 +69,27 @@
     </div>
 
 
-    <aside class="img-aside flex-container">
+    <aside class="img-aside flex-container" id="img-aside">
         <h4>IMAGEN</h4>
 
         <form>
             <section>
                 <label for="url" class="text-size-s">URL</label>
 
-                <input type="url" id="url-input" class="text-size-m form-control-box">
+                <input type="url" id="url-input" class="text-size-m ctrl-btn-inputs">
             </section>
 
             <section>
                 <label for="fondo" class="text-size-s">FONDO</label>
 
                 <div class="container-color-select flex-container">
-                    <div class="half-color flex-container form-control-box">
-                        <input type="color" class="color-rounded" id="fondo-img-input" value="#FFFFFF">
-                        <span class="text-size-m" id="fondo-img-span">#FFFFFF</span>
+                    <div class="half-color flex-container ctrl-btn-inputs">
+                        <input type="color" class="color-rounded" id="input-color-img" value="#000000">
+                        <span class="text-size-m" id="color-fondo-name">#000000</span>
                     </div>
 
 
-                    <select class="half-color text-size-m form-control-box">Ninguno
+                    <select class="half-color text-size-m ctrl-btn-inputs">Ninguno
                         <option value="Ninguno"  class="text-size-m">Ninguno</option>
                         <option value="Aclarar"  class="text-size-m">Aclarar</option>
                         <option value="Oscurecer"  class="text-size-m">Oscurecer</option>
@@ -282,9 +156,143 @@
                 </div>
             </section>
 
-            <input type="reset" value="Reestablecer Filtros" class="text-size-l form-control-box">
+            <input type="reset" value="Reestablecer Filtros" class="text-size-l ctrl-btn-inputs">
         </form>
 
+    </aside>
+
+
+    <aside class="text-aside is-hidden" id="text-aside">
+        <h4>TEXTO</h4>
+
+        <form class="flex-container">
+            <section>
+                <div>
+                    <label for="top-text-input" class="text-size-s">SUPERIOR</label>
+                    <textarea id="top-text-input" class="text-size-m ctrl-btn-inputs"  placeholder="TOP TEXT"></textarea>
+                </div>
+
+
+                <div class="checkbox">
+                    <input type="checkbox" id="top-checkbox">
+                    <label for="top-checkbox">Sin texto superior</label>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <label for="bottom-text-input" class="text-size-s">INFERIOR</label>
+                    <textarea placeholder="BOTTOM TEXT" id="bottom-text-input" class="text-size-m ctrl-btn-inputs"></textarea>
+                </div>
+
+
+                <div class="checkbox">
+                    <input type="checkbox" id="bottom-checkbox">
+                    <label for="bottom-checkbox">Sin texto inferior</label>
+                </div>
+            </section>
+
+
+            <section class="container-fuente">
+                <label for="font-family" class="text-size-s">FUENTE</label>
+
+                <select id="font-family" class="tipografia text-size-m ctrl-btn-inputs">Impact
+                    <option value="Arial, Helvetica, sans-serif" class="text-size-m">Arial</option>
+                    <option value="Arial Black" class="text-size-m">Arial Black</option>
+                    <option value="Andale" class="text-size-m">Andale Mono</option>
+                    <option value="fantasy" class="text-size-m">Fantasy</option>
+                    <option value="Georgia, 'Times New Roman', Times, serif" class="text-size-m">Georgia</option>
+                    <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" class="text-size-m">Impact</option>
+                    <option value="Verdana, Geneva, Tahoma, sans-serif" class="text-size-m">Verdana</option>
+                    <option value="'Times New Roman', Times, serif" class="text-size-m">Times New Roman</option>
+                    <option value="'Courier New', Courier, monospace" class="text-size-m">Courier</option>
+                </select>
+
+                <div class="container-tamaño-alineacion flex-container">
+                    <input type="number" value="40" class="tamaño-tipografia text-size-m ctrl-btn-inputs" id="font-size-input">
+
+                    <button class="ctrl-btn-inputs" id="left-align-btn">
+                        <i class="fa-solid fa-align-left text-size-l"></i>
+                    </button>
+
+
+                    <button class="ctrl-btn-inputs" id="center-align-btn">
+                        <i class="fa-solid fa-align-center text-size-l"></i>
+                    </button>
+
+
+                    <button class="ctrl-btn-inputs" id="right-align-btn">
+                        <i class="fa-solid fa-align-right text-size-l"></i>
+                    </button>
+                </div>
+
+            </section>
+
+
+            <section>
+                <div class="container-text-colors flex-container">
+                    <div>
+                        <label for="color" class="text-size-s">COLOR</label>
+
+                        <div>
+                            <div class="half-text-color flex-container ctrl-btn-inputs">
+                                <input type="color" class="color-rounded half-color" id="color" value="#000000">
+                                <span class="text-size-m">#000000</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <label for="fondo" class="text-size-s">FONDO</label>
+
+                        <div>
+                            <div class="half-text-color flex-container ctrl-btn-inputs">
+                                <input type="color" value="#FFFFFF" class="color-rounded half-color" id="fondo">
+                                <span class="text-size-m">#FFFFFF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="checkbox">
+                    <input type="checkbox" id="checkbox-fondo">
+                    <label for="checkbox-fondo">Fondo transparente</label>
+                </div>
+            </section>
+
+
+            <section>
+                <p class="text-size-s">CONTORNO</p>
+
+                <div class="container-button-contorno flex-container">
+                    <button class="text-size-m ctrl-btn-inputs">Ninguno</button>
+                    <button class="text-size-m ctrl-btn-inputs">Claro</button>
+                    <button class="text-size-m ctrl-btn-inputs">Oscuro</button>
+                </div>
+            </section>
+
+
+            <section>
+                <label for="espaciado" class="text-size-s">ESPACIADO</label>
+                <input type="number" id="espaciado" value="35"  class="text-size-m ctrl-btn-inputs">
+            </section>
+
+
+            <section>
+                <label for="interlineado" class="text-size-s">INTERLINEADO</label>
+
+                <select id="interlineado" class="interlineado text-size-m ctrl-btn-inputs">1.2
+                    <option value="0.8" class="text-size-m">0.8</option>
+                    <option value="1" class="text-size-m">1</option>
+                    <option value="1.2" class="text-size-m">1.2</option>
+                    <option value="1.5" class="text-size-m">1.5</option>
+                    <option value="2" class="text-size-m">2</option>
+                    <option value="2.5" class="text-size-m">2.5</option>
+                </select>
+            </section>
+        </form>
     </aside>
 
 
