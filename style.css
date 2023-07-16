@@ -102,38 +102,39 @@ CSS MAIN
 main{
     background-color: #30343f;
     min-height: 84vh;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 .meme-box{
-    height: 80vh;
+    height: 82%;
     width: 40%;
-    background-color: aliceblue;
-    margin: auto;
+    /* margin: auto; */
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    margin-top: 2%;
 }
 
 
 .texto-meme{ 
-    border: 1px solid black;
     box-sizing: content-box;
-}
-
-
-.texto-meme p{
     font-size: 40rem;
-    font-family: 'Anton', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: #191e2b;
+    background-color: rgb(255, 255, 255);
+    height: 20%;
+    text-align: center;
+    width: 100%;
 }
 
 
 .meme-img{
     background-color: black;
-    height: 65%;
+    height: 70%;
     background-repeat: no-repeat;
     background-size: cover;
+    flex-grow: 1;
 }
 
 
@@ -142,7 +143,8 @@ main{
     border: none;
     border-radius: 4px;
     padding: 15px 20px;
-    margin: auto;
+    width: 12%;
+    /* margin: auto; */
     margin-top: 1%;
     color: aliceblue;
 }
@@ -400,7 +402,7 @@ PREGUNTAS:
 
 1) Como hacer que si el texto es muy largo, baje solo de linea
 
-2) No puedo terminar de ponerle el hide a los divs de los textos del meme
+2) min="10" max="50" me modifica la ubicacion del input
 
 
 -----------------------

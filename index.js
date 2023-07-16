@@ -72,7 +72,6 @@ const lightButton = document.getElementById('light-button');
 const darkButton = document.getElementById('dark-button')
 
 
-
 // // 2) CREAR FUNCION
 const changeMode = () =>{
     textAside.classList.toggle('light-aside');
@@ -87,13 +86,9 @@ const changeMode = () =>{
 darkButton.addEventListener('click', ()=>changeMode());
 
 
-/* 
-
+/*
 .light-body, .light-header, .light-main, .light-aside, .light-ctrl-btn-inputs, .light-ctrl-btn-inputs:hover, .light-ctrl-btn-inputs:focus
-
 */
-
-
 
 
 // CAMBIO DE LA IMAGEN DEL MEME
@@ -154,9 +149,21 @@ const imgColorName = (e) =>{
 colorPicker.addEventListener('input', (e)=>imgColorName(e));
 
 
+// -------------------------
+
+// SELECT DE MEZCLA DE LA IMAGEN
+
+const blendSelect = document.getElementById('blend-select');
+
+// const memeImg = document.getElementById('meme-img');
+
+
+blendSelect.addEventListener('input', ()=>{
+    memeImg.style.backgroundBlendMode = `${blendSelect.value}`
+});
+
 
 // ------------------------------
-
 
 // FILTROS
 
@@ -172,22 +179,9 @@ const saturadoInput = document.getElementById ('saturado-input')
 const negativoInput = document.getElementById ('negativo-input')
 
 
-//2) Pruebo si funciona cada cosa
-// console.log(brilloInput.value); 
-// console.log(opacidadInput.value);
-// console.log(contrasteInput.value); 
-// console.log(desenfoqueInput.value); 
-// console.log(grisesInput.value); 
-// console.log(sepiaInput.value); 
-// console.log(hueInput.value); 
-// console.log(saturadoInput.value); 
-// console.log(negativoInput.value); 
-
-
 //3) FUNCION PARA APLICAR LOS FILTROS A LA IMAGEN DEL MEME
 const filtros = (e) =>{
     //console.log(e.target.value); //luego sacar
-
     memeImg.style.filter = `brightness(${brilloInput.value}) opacity(${opacidadInput.value}) contrast(${contrasteInput.value}%) blur(${desenfoqueInput.value}px) grayscale(${grisesInput.value}%) hue-rotate(${hueInput.value}deg) sepia(${sepiaInput.value}%) saturate(${saturadoInput.value}%) invert(${negativoInput.value})`
 };
 
@@ -238,37 +232,33 @@ bottomTextInput.addEventListener('input',(e) =>(changeBottomText(e)))
 // ACTIVO Y DESACTIVO CHECKBOX DE TEXTO
 
 // 1) ELEMENTOS HTML
-
-const topTextContainer = document.getElementById('top-text-container');
-const bottomTextContainer = document.getElementById('bottom-text-container');
-
-
 const topCheckbox = document.getElementById('top-checkbox');
-const bottomCheckbox = document.getElementById('bottom-checkbox');
+const bottomCheckbox = document.getElementById('bottom-checkbox');memeBottomText
+
+// const memeTopText = document.getElementById('meme-top-text');
+// const memeBottomText = document.getElementById('meme-bottom-text')
 
 
 // 2) ARMAR FUNCIONES
-
 const hideTopText = (e) =>{
     if (topCheckbox.checked){
-        topTextContainer.classList.add('is-hidden')
+        memeTopText.classList.add('is-hidden')
     } else{
-        topTextContainer.classList.remove('is-hidden')
+        memeTopText.classList.remove('is-hidden')
     }
 };
 
 
 const hideBottomText = (e) =>{
     if (bottomCheckbox.checked){
-        bottomTextContainer.classList.add('is-hidden')
+        memeBottomText.classList.add('is-hidden')
     } else{
-        bottomTextContainer.classList.remove('is-hidden')
+        memeBottomText.classList.remove('is-hidden')
     }
 };
 
 
 // 3) ACTIVO FUNCIONES
-
 topCheckbox.addEventListener('change', (e)=>hideTopText(e));
 bottomCheckbox.addEventListener('change', (e)=>hideBottomText(e));
 
@@ -278,17 +268,13 @@ bottomCheckbox.addEventListener('change', (e)=>hideBottomText(e));
 
 // CAMBIO DE FUENTE
 
-
 // 1) Elemento del html
-
 const fontFamily = document.getElementById('font-family')
 // const memeTopText = document.getElementById('meme-top-text');
 // const memeBottomText = document.getElementById('meme-bottom-text')
 
 
-
 // 2) ARMO FUNCIONES
-
 const changeFontFamily = (e) =>{
     memeTopText.style.fontFamily = `${fontFamily.value}`;
     memeBottomText.style.fontFamily = `${fontFamily.value}`;
@@ -296,7 +282,6 @@ const changeFontFamily = (e) =>{
 
 
 // 3) ACTIVO FUNCION
-
 fontFamily.addEventListener('change', (e)=>changeFontFamily(e));
 
 
@@ -312,7 +297,6 @@ const fontSizeInput = document.getElementById('font-size-input');
 
 
 // 2) Armo funcion
-
 const changeFontSize = (e) =>{
     memeTopText.style.fontSize = `${fontSizeInput.value}rem`;
     memeBottomText.style.fontSize = `${fontSizeInput.value}rem`;
@@ -328,40 +312,175 @@ fontSizeInput.addEventListener('input', (e)=>changeFontSize(e));
 // ALINEACION DEL TEXTO
 
 // 1) ELEMENTOS DEL HTML
-// const leftAlignBtn = document.getElementById('left-align-btn');
-// const centerAlignBtn = document.getElementById('center-align-btn');
-// const rightAlignBtn = document.getElementById('right-align-btn');
+const leftAlignBtn = document.getElementById('left-align-btn');
+const centerAlignBtn = document.getElementById('center-align-btn');
+const rightAlignBtn = document.getElementById('right-align-btn');
 
 // const memeTopText = document.getElementById('meme-top-text');
 // const memeBottomText = document.getElementById('meme-bottom-text')
 
 
 // 2) Armo funcion
-
-// const changeTopAlign = (e) =>{
-//     if (leftAlignBtn.ch)
-
-// };
-
-
-// const hideBottomText = (e) =>{
-//     if (bottomCheckbox.checked){
-//         bottomTextContainer.classList.add('is-hidden')
-//     } else{
-//         bottomTextContainer.classList.remove('is-hidden')
-//     }
-// };
+leftAlignBtn.addEventListener('click', ()=>{
+    memeTopText.style.textAlign = 'left';
+    memeBottomText.style.textAlign = 'left';
+});
 
 
+centerAlignBtn.addEventListener('click', ()=>{
+    memeTopText.style.textAlign = 'center';
+    memeBottomText.style.textAlign = 'center';
+});
+
+
+rightAlignBtn.addEventListener('click', ()=>{
+    memeTopText.style.textAlign = 'right';
+    memeBottomText.style.textAlign = 'right';
+});
+
+
+//---------------------
+
+// COLORES DEL TEXTO Y SU FONDO
+
+const textColorPicker = document.getElementById('input-color-text')
+const textBkgColorPicker = document.getElementById('input-color-bkg-text')
+
+const textColorName = document.getElementById('text-color-name')
+const textBkgColorName = document.getElementById('text-bkg-color-name')
+
+// const memeTopText = document.getElementById('meme-top-text');
+// const memeBottomText = document.getElementById('meme-bottom-text')
+
+
+textColorPicker.addEventListener('input', ()=>{
+    memeTopText.style.color = `${textColorPicker.value}`;
+    memeBottomText.style.color = `${textColorPicker.value}`;
+
+    textColorName.innerHTML = `${textColorPicker.value}`;
+});
+
+
+textBkgColorPicker.addEventListener('input', ()=>{
+    memeTopText.style.backgroundColor = `${textBkgColorPicker.value}`;
+    memeBottomText.style.backgroundColor = `${textBkgColorPicker.value}`;
+
+    textBkgColorName.innerHTML = `${textBkgColorPicker.value}`;
+});
+
+
+//---------------------
+
+// CHECKBOX FONDO TRANSPARENTE
+
+// 1) ELEMENTOS HTML
+const checkboxSinFondo = document.getElementById('checkbox-sin-fondo');
+
+// const memeTopText = document.getElementById('meme-top-text');
+// const memeBottomText = document.getElementById('meme-bottom-text')
+
+
+// 3) ACTIVO FUNCIONES
+checkboxSinFondo.addEventListener('change', ()=>{
+    if (checkboxSinFondo.checked){
+        memeTopText.style.backgroundColor = 'transparent'
+        memeBottomText.style.backgroundColor = 'transparent'
+    } else{
+        memeTopText.style.backgroundColor = `${textBkgColorPicker.value}`
+        memeBottomText.style.backgroundColor = `${textBkgColorPicker.value}`
+    }
+});
+
+ // const textBkgColorPicker = document.getElementById('input-color-bkg-text')
+
+
+//--------------------------------
+
+//CONTORNO DEL TEXTO
+
+const contornTextNone = document.getElementById('contorn-text-none');
+const contornTextWhite = document.getElementById('contorn-text-white')
+const contornTextBlack = document.getElementById('contorn-text-black')
+
+// const memeTopText = document.getElementById('meme-top-text');
+// const memeBottomText = document.getElementById('meme-bottom-text')
+
+contornTextNone.addEventListener('click', ()=>{
+    memeTopText.style.webkitTextStroke = 'transparent'
+    memeBottomText.style.webkitTextStroke = 'transparent'
+});
+
+contornTextWhite.addEventListener('click', ()=>{
+    memeTopText.style.webkitTextStroke = '2px white'
+    memeBottomText.style.webkitTextStroke = '2px white'
+});
+
+contornTextBlack.addEventListener('click', ()=>{
+    memeTopText.style.webkitTextStroke = '2px black'
+    memeBottomText.style.webkitTextStroke = '2px black'
+});
+
+//----------------------
+
+// ESPACIADO
+
+const inputSpacing = document.getElementById('input-spacing')
+
+// const memeTopText = document.getElementById('meme-top-text');
+// const memeBottomText = document.getElementById('meme-bottom-text')
+
+inputSpacing.addEventListener('input', ()=>{
+    memeTopText.style.padding = `${inputSpacing.value}px 0px`
+    memeBottomText.style.padding = `${inputSpacing.value}px 0px`
+}); 
 
 
 
+//-----------------------
+
+// INTERLINEADO DEL TEXTO
+const interlineado = document.getElementById('interlineado')
+
+interlineado.addEventListener('change', ()=>{
+    memeTopText.style.lineHeight = `${interlineado.value}`
+    memeBottomText.style.lineHeight = `${interlineado.value}`
+});
+
+
+//---------------------
+
+// BOTON RESET
+
+const resetBtn = document.getElementById('reset-btn');
+
+const btnResetFilters = () =>{
+    brilloInput.value = "100"
+    opacidadInput.value = "100"
+    contrasteInput.value = "0"
+    desenfoqueInput.value = "0"
+    grisesInput.value = "0"
+    sepiaInput.value = "0"
+    hueInput.value = "0"
+    saturadoInput.value = "0"
+    negativoInput.value = "0"
+    filtros()
+}
+
+resetBtn.addEventListener ("click", btnResetFilters)
+
+
+
+//--------------------------
 
 // PARA APLICAR EL BOTON DE DESCARGA
 
-// const downloadMeme = () => {  domtoimage.toBlob(meme).then(function (blob) {    window.saveAs(blob, "mi-meme.png");  });};
+const downloadMemeBtn = document.getElementById("download-meme-btn");
+const meme = document.getElementById("meme-box");
 
+downloadMemeBtn.addEventListener("click", () => downloadMeme());
 
-
-
-
+const downloadMeme = () => {
+    domtoimage.toBlob(meme).then(function (blob) {
+    window.saveAs(blob, "mi-meme.png");
+    });
+};

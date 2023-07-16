@@ -10,13 +10,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@700&family=Open+Sans:wght@600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@700&family=Open+Sans:wght@600&display=swap"
         rel="stylesheet">
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <title>Generador de memes</title>
 
@@ -48,20 +46,16 @@
         </header>
 
 
-        <main id="main">
-            <div class="meme-box flex-container">
-                <div class="texto-meme" id="top-text-container">
-                    <p id="meme-top-text">TOP TEXT</p>
-                </div>
+        <main id="main" class="flex-container">
+            <div class="meme-box flex-container" id="meme-box">
+                <p class="texto-meme" id="meme-top-text">TOP TEXT</p>
 
                 <div class="meme-img" id="meme-img"></div>
 
-                <div class="texto-meme" id="bottom-text-container">
-                    <p id="meme-bottom-text">BOTTOM TEXT</p>
-                </div>
+                <p class="texto-meme" id="meme-bottom-text">BOTTOM TEXT</p>
             </div>
 
-            <button class="boton-descargar flex-container text-size-l">
+            <button class="boton-descargar flex-container text-size-l" id="download-meme-btn">
                 <i class="fa-solid fa-download text-size-l"></i>
                 Descargar meme
             </button>
@@ -89,13 +83,13 @@
                     </div>
 
 
-                    <select class="half-color text-size-m ctrl-btn-inputs">Ninguno
-                        <option value="Ninguno"  class="text-size-m">Ninguno</option>
-                        <option value="Aclarar"  class="text-size-m">Aclarar</option>
-                        <option value="Oscurecer"  class="text-size-m">Oscurecer</option>
-                        <option value="Diferencia"  class="text-size-m">Diferencia</option>
-                        <option value="Luminosidad"  class="text-size-m">Luminosidad</option>
-                        <option value="Multiplicar"  class="text-size-m">Multiplicar</option>
+                    <select class="half-color text-size-m ctrl-btn-inputs" id="blend-select">Ninguno
+                        <option value="unset"  class="text-size-m">Ninguno</option>
+                        <option value="lighten"  class="text-size-m">Aclarar</option>
+                        <option value="darken"  class="text-size-m">Oscurecer</option>
+                        <option value="difference"  class="text-size-m">Diferencia</option>
+                        <option value="luminosity"  class="text-size-m">Luminosidad</option>
+                        <option value="multiply"  class="text-size-m">Multiplicar</option>
                     </select>
                 </div>
             </section>
@@ -156,7 +150,7 @@
                 </div>
             </section>
 
-            <input type="reset" value="Reestablecer Filtros" class="text-size-l ctrl-btn-inputs">
+            <input type="reset" value="Reestablecer Filtros" class="text-size-l ctrl-btn-inputs" id="reset-btn">
         </form>
 
     </aside>
@@ -169,7 +163,7 @@
             <section>
                 <div>
                     <label for="top-text-input" class="text-size-s">SUPERIOR</label>
-                    <textarea id="top-text-input" class="text-size-m ctrl-btn-inputs"  placeholder="TOP TEXT"></textarea>
+                    <textarea id="top-text-input" class="text-size-m ctrl-btn-inputs"  placeholder="TOP TEXT" maxlength="30"></textarea>
                 </div>
 
 
@@ -182,7 +176,7 @@
             <section>
                 <div>
                     <label for="bottom-text-input" class="text-size-s">INFERIOR</label>
-                    <textarea placeholder="BOTTOM TEXT" id="bottom-text-input" class="text-size-m ctrl-btn-inputs"></textarea>
+                    <textarea placeholder="BOTTOM TEXT" id="bottom-text-input" class="text-size-m ctrl-btn-inputs"  maxlength="30"></textarea>
                 </div>
 
 
@@ -211,17 +205,18 @@
                 <div class="container-tamaño-alineacion flex-container">
                     <input type="number" value="40" class="tamaño-tipografia text-size-m ctrl-btn-inputs" id="font-size-input">
 
-                    <button class="ctrl-btn-inputs" id="left-align-btn">
+
+                    <button type="button" class="ctrl-btn-inputs" id="left-align-btn">
                         <i class="fa-solid fa-align-left text-size-l"></i>
                     </button>
 
 
-                    <button class="ctrl-btn-inputs" id="center-align-btn">
+                    <button type="button" class="ctrl-btn-inputs" id="center-align-btn">
                         <i class="fa-solid fa-align-center text-size-l"></i>
                     </button>
 
 
-                    <button class="ctrl-btn-inputs" id="right-align-btn">
+                    <button type="button" class="ctrl-btn-inputs" id="right-align-btn">
                         <i class="fa-solid fa-align-right text-size-l"></i>
                     </button>
                 </div>
@@ -232,24 +227,24 @@
             <section>
                 <div class="container-text-colors flex-container">
                     <div>
-                        <label for="color" class="text-size-s">COLOR</label>
+                        <label for="input-color-text" class="text-size-s">COLOR</label>
 
                         <div>
                             <div class="half-text-color flex-container ctrl-btn-inputs">
-                                <input type="color" class="color-rounded half-color" id="color" value="#000000">
-                                <span class="text-size-m">#000000</span>
+                                <input type="color" class="color-rounded half-color" id="input-color-text" value="#000000">
+                                <span class="text-size-m" id="text-color-name">#000000</span>
                             </div>
                         </div>
                     </div>
 
 
                     <div>
-                        <label for="fondo" class="text-size-s">FONDO</label>
+                        <label for="input-color-bkg-text" class="text-size-s">FONDO</label>
 
                         <div>
                             <div class="half-text-color flex-container ctrl-btn-inputs">
-                                <input type="color" value="#FFFFFF" class="color-rounded half-color" id="fondo">
-                                <span class="text-size-m">#FFFFFF</span>
+                                <input type="color" value="#FFFFFF" class="color-rounded half-color" id="input-color-bkg-text">
+                                <span class="text-size-m" id="text-bkg-color-name">#FFFFFF</span>
                             </div>
                         </div>
                     </div>
@@ -257,8 +252,8 @@
 
 
                 <div class="checkbox">
-                    <input type="checkbox" id="checkbox-fondo">
-                    <label for="checkbox-fondo">Fondo transparente</label>
+                    <input type="checkbox" id="checkbox-sin-fondo">
+                    <label for="checkbox-sin-fondo">Fondo transparente</label>
                 </div>
             </section>
 
@@ -267,16 +262,16 @@
                 <p class="text-size-s">CONTORNO</p>
 
                 <div class="container-button-contorno flex-container">
-                    <button class="text-size-m ctrl-btn-inputs">Ninguno</button>
-                    <button class="text-size-m ctrl-btn-inputs">Claro</button>
-                    <button class="text-size-m ctrl-btn-inputs">Oscuro</button>
+                    <button type="button" class="text-size-m ctrl-btn-inputs" id="contorn-text-none">Ninguno</button>
+                    <button type="button" class="text-size-m ctrl-btn-inputs" id="contorn-text-white">Claro</button>
+                    <button type="button" class="text-size-m ctrl-btn-inputs" id="contorn-text-black">Oscuro</button>
                 </div>
             </section>
 
 
             <section>
-                <label for="espaciado" class="text-size-s">ESPACIADO</label>
-                <input type="number" id="espaciado" value="35"  class="text-size-m ctrl-btn-inputs">
+                <label for="input-spacing" class="text-size-s">ESPACIADO</label>
+                <input type="number" id="input-spacing" value="35" class="text-size-m ctrl-btn-inputs">
             </section>
 
 
