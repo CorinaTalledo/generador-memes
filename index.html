@@ -27,19 +27,19 @@
             <h2>Generador de Memes</h2>
 
             <div class="container-button flex-container">
-                <button class="text-size-l ctrl-btn-inputs" id="img-button">
+                <button type="button" class="text-size-l ctrl-btn-inputs" id="img-button">
                     <i class="fa-solid fa-file-image text-size-l"></i>Imagen
                 </button>
 
-                <button class="text-size-l ctrl-btn-inputs" id="text-button">
+                <button type="button" class="text-size-l ctrl-btn-inputs" id="text-button">
                     <i class="fa-solid fa-font text-size-l"></i>Texto
                 </button>
 
-                <button class="text-size-l ctrl-btn-inputs" id="dark-button">
+                <button type="button" class="text-size-l ctrl-btn-inputs" id="dark-button">
                     <i class="fa-regular fa-lightbulb text-size-l"></i>Modo oscuro
                 </button>
 
-                <button class="text-size-l ctrl-btn-inputs is-hidden" id="light-button">
+                <button type="button" class="text-size-l ctrl-btn-inputs is-hidden" id="light-button">
                     <i class="fa-solid fa-lightbulb text-size-l"></i>Modo claro
                 </button>
             </div>
@@ -64,6 +64,11 @@
 
 
     <aside class="img-aside" id="img-aside">
+
+        <button type="button" class="close-aside" id="close-img-aside">
+            <i class="fa-solid fa-xmark text-size-l"></i>
+        </button>
+
         <h4>IMAGEN</h4>
 
         <form>
@@ -146,7 +151,7 @@
 
                 <div class="filtro">
                     <label for="negativo" class="text-size-s">NEGATIVO</label>
-                    <input type="range" id="negativo-input" min="0" max="1" step="0.1" value="1">
+                    <input type="range" id="negativo-input" min="0" max="1" step="0.1" value="0">
                 </div>
             </section>
 
@@ -157,6 +162,11 @@
 
 
     <aside class="text-aside is-hidden" id="text-aside">
+        
+        <button type="button" class="close-aside" id="close-text-aside">
+            <i class="fa-solid fa-xmark text-size-l"></i>
+        </button>
+
         <h4>TEXTO</h4>
 
         <form class="">
@@ -190,9 +200,9 @@
             <section class="container-fuente">
                 <label for="font-family" class="text-size-s">FUENTE</label>
 
-                <select id="font-family" class="tipografia text-size-m ctrl-btn-inputs">Impact
+                <select id="font-family" class="tipografia text-size-m ctrl-btn-inputs">
                     <option value="Arial, Helvetica, sans-serif" class="text-size-m">Arial</option>
-                    <option value="Arial Black" class="text-size-m">Arial Black</option>
+                    <option selected value="Arial Black" class="text-size-m">Arial Black</option>
                     <option value="Andale" class="text-size-m">Andale Mono</option>
                     <option value="fantasy" class="text-size-m">Fantasy</option>
                     <option value="Georgia, 'Times New Roman', Times, serif" class="text-size-m">Georgia</option>
@@ -226,7 +236,7 @@
 
             <section>
                 <div class="container-text-colors flex-container">
-                    <div>
+                    <div class="half-text-color">
                         <label for="input-color-text" class="text-size-s">COLOR</label>
 
                         <div>
@@ -238,7 +248,7 @@
                     </div>
 
 
-                    <div>
+                    <div class="half-text-color">
                         <label for="input-color-bkg-text" class="text-size-s">FONDO</label>
 
                         <div>

@@ -115,11 +115,10 @@ main{
 
 
 .meme-box{
-    height: 82%;
-    width: 40%;
+    height: 500px;
+    width: 600px;
     flex-direction: column;
     justify-content: center;
-    margin-top: 2%;
     position: relative;
 }
 
@@ -127,13 +126,13 @@ main{
 .texto-meme{ 
     box-sizing: content-box;
     font-size: 40rem;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial Black;
     color: #191e2b;
     background-color: rgb(255, 255, 255);
     height: 20%;
     text-align: center;
     width: 100%;
-    position: absolute;
+    position: static;
 }
 
 
@@ -163,6 +162,7 @@ main{
     width: 12%;
     margin-top: 1%;
     color: aliceblue;
+    justify-content: center;
 }
 
 
@@ -184,7 +184,6 @@ CSS GENERAL DE ASIDES
 
 
 aside{
-    flex-direction: column;
     width: 15%;
     height: 100%;
     background-color: var(--background-aside);
@@ -211,11 +210,22 @@ input, textarea{
 }
 
 
+.close-aside{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    color: var(--text-ctrl-btn-inputs);
+    margin: 6%;
+}
+
+
 .ctrl-btn-inputs{
-    color: aliceblue;
+    color: var(--text-ctrl-btn-inputs);
     padding: 8px;
     border-radius: 4px;
-    background-color: var(--ctrl-btn-inputs);
+    background-color: var(--bkg-ctrl-btn-inputs);
     border: none;
     box-sizing: border-box;
     height: 35px;
@@ -292,9 +302,28 @@ input[type="color"]{
 }
 
 
-input[type="range"]{     
+
+input[type=range] {
+    margin: 10px 0;
     width: 100%;
-    height: 12%;
+}
+
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 6px;
+    background: #5A5D68;
+    border-radius: 50px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    height: 200px;
+    width: 50px;
+    border-radius: 50px;
+    margin-top: -6.5px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #7c7e82;
 }
 
 
@@ -323,7 +352,7 @@ ASIDE TEXTO
 
 
 .half-text-color{
-    width: 100%;
+    width: 90%;
     align-items: center;
 }
 
@@ -388,7 +417,8 @@ MODO CLARO
     --background-header: #e0e0e0;
     --background-main: #eeeeee;
     --background-aside: #fafafa;
-    --ctrl-btn-inputs: #e0e0e0;
+    --bkg-ctrl-btn-inputs: #e0e0e0;
+    --text-ctrl-btn-inputs: #424242;
     --ctrl-btn-inputs-hover: #bdbdbd;
     --ctrl-btn-inputs-focus: #bdbdbd;
 }
@@ -406,36 +436,11 @@ MODO OSCURO
     --background-header: #191e2b;
     --background-main: #30343f;
     --background-aside: #252935;
-    --ctrl-btn-inputs: #393e49;
+    --bkg-ctrl-btn-inputs: #393e49;
+    --text-ctrl-btn-inputs: aliceblue;
     --ctrl-btn-inputs-hover: #4E5565;
     --ctrl-btn-inputs-focus: #4E5565;
 }
-
-
-
-/* 
-.light-body{
-    color: #424242;
-}
-
-.light-header, .light-ctrl-btn-inputs{
-    background-color: #e0e0e0;
-}
-
-.light-main{
-    background-color: #eeeeee;
-} */
-
-
-/* .light-aside{
-    background-color: #fafafa;
-} 
-
-.light-ctrl-btn-inputs:hover, .light-ctrl-btn-inputs:focus{
-    background-color: #bdbdbd;
-}*/
-
-/* ----------------------- */
 
 
 /* 
@@ -455,9 +460,55 @@ MEDIAS QUERIES
 }
 
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
+    .boton-descargar{
+        width: 20%;
+    }
+
+    aside{
+        width: 20%;
+    }
     
 }
+
+
+@media (max-width: 1000px) {
+    .boton-descargar{
+        width: 30%;
+    }
+
+    aside{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 30px;
+    }
+
+    input, textarea{
+        margin: 1% 0%;
+
+    }
+
+    section{
+        margin-bottom: 3%;
+    }
+
+    h4{
+        margin-bottom: 10%;
+    }
+}
+
+
+@media (max-width: 715px){
+    .container-button{
+        width: 50%;
+    }
+
+    .boton-descargar{
+        width: 50%;
+    }
+}
+
+
 
 
 

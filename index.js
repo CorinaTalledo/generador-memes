@@ -32,21 +32,39 @@ textButton.addEventListener('click', ()=>{
 // 2) Cambio de Modo
 
 // Elementos del html
-// const lightButton = document.getElementById('light-button');
-// const darkButton = document.getElementById('dark-button');
-
-// const body = document.body;
-
-
-// 3) ACTIVO FUNCION
-// changeBackground.addEventListener('click', ()=>{
-//     const currentTheme = body.getAttribute('data-theme');
-//     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-//     body.setAttribute('data-theme', newTheme);
-// });
+const lightButton = document.getElementById('light-button');
+const darkButton = document.getElementById('dark-button');
+const body = document.body;
 
 
+// Funcion para cambiar de tema
+const changeTheme = () =>{
+    let currentTheme = body.getAttribute('data-theme');
+
+    if (currentTheme === 'dark'){
+        newTheme = 'light'
+    } else {
+        newTheme = 'dark'
+    }
+
+    body.setAttribute('data-theme', newTheme);
+};
+
+
+// Funcion para que cambie el boton del tema oscuro
+darkButton.addEventListener('click', () =>{
+    changeTheme();
+    darkButton.classList.add('is-hidden');
+    lightButton.classList.remove('is-hidden');
+});
+
+
+// Funcion para cambiar el boton del tema claro
+lightButton.addEventListener('click', () =>{
+    changeTheme();
+    lightButton.classList.add('is-hidden');
+    darkButton.classList.remove('is-hidden');
+});
 
 
 // --------------------------------
@@ -73,27 +91,14 @@ urlInput.addEventListener('input', ()=>{
 
 // Elementos del html
 const colorPicker = document.getElementById('input-color-img');
+const colorFondoName = document.getElementById('color-fondo-name')
+
 // const memeImg = document.getElementById('meme-img'); 
 
 
 // Funcion para cambiar el color del fondo de la imagen
 colorPicker.addEventListener('input', ()=>{
     memeImg.style.backgroundColor = `${colorPicker.value}`
-});
-
-
-// ------------------
-
-
-// 3) Modificacion dinamica del span del color
-
-// Elementos del html
-const colorFondoName = document.getElementById('color-fondo-name')
-// const colorPicker = document.getElementById('color-fondo-img'); (reutilizado)
-
-
-// Funcion para cambiar el span del color
-colorPicker.addEventListener('input', ()=>{
     colorFondoName.innerHTML = `${colorPicker.value}`
 });
 
@@ -101,7 +106,7 @@ colorPicker.addEventListener('input', ()=>{
 // -------------------------
 
 
-// 4) Select de filtro automatico de la imagen
+// 3) Select de filtro automatico de la imagen
 
 // Elementos del html
 const blendSelect = document.getElementById('blend-select');
@@ -116,7 +121,7 @@ blendSelect.addEventListener('input', ()=>{
 
 // ------------------------------
 
-// 5) Filtros (ranges)
+// 4) Filtros (ranges)
 
 // Elementos del html
 const brilloInput = document.getElementById('brillo-input')
@@ -150,7 +155,7 @@ negativoInput.addEventListener('input', (e)=>filtros(e));
 
 //-------------------------------
 
-// 6) Boton de reestablecer filtros
+// 5) Boton de reestablecer filtros
 
 const resetBtn = document.getElementById('reset-btn');
 
@@ -300,7 +305,7 @@ rightAlignBtn.addEventListener('click', ()=>{
 
 //---------------------
 
-// 6) Color y nombre del color del texto superior
+// 6) Color y nombre del color del texto
 
 // Elementos del html
 const textColorPicker = document.getElementById('input-color-text')
@@ -309,7 +314,7 @@ const textColorName = document.getElementById('text-color-name')
 // const memeBottomText = document.getElementById('meme-bottom-text')
 
 
-// Funcion de cambio de color y nombre del color del texto superior
+// Funcion de cambio de color y nombre del color del texto
 textColorPicker.addEventListener('input', ()=>{
     memeTopText.style.color = `${textColorPicker.value}`;
     memeBottomText.style.color = `${textColorPicker.value}`;
@@ -320,7 +325,7 @@ textColorPicker.addEventListener('input', ()=>{
 
 //---------------------
 
-// 7) Color y nombre del color del texto inferior
+// 7) Color y nombre del color del fondo deltexto
 
 // Elementos del html
 const textBkgColorPicker = document.getElementById('input-color-bkg-text')
@@ -352,7 +357,11 @@ const checkboxSinFondo = document.getElementById('checkbox-sin-fondo');
 checkboxSinFondo.addEventListener('change', ()=>{
     if (checkboxSinFondo.checked){
         memeTopText.style.backgroundColor = 'transparent'
+        memeTopText.style.position = 'absolute'
+
         memeBottomText.style.backgroundColor = 'transparent'
+        memeBottomText.style.position = 'absolute'
+
     } else{
         memeTopText.style.backgroundColor = `${textBkgColorPicker.value}`
         memeBottomText.style.backgroundColor = `${textBkgColorPicker.value}`
@@ -443,29 +452,63 @@ const downloadMeme = () => {
 };
 
 
+//---------------------------------
+//      MEDIAS QUERIES
+//---------------------------------
 
+// 1) Funcion para que los asides desaparezcan, y se muestren las x
 
-// ------------------------
+// Elementos del html
+const closeTextAside = document.getElementById('close-text-aside');
+const closeImgAside = document.getElementById('close-img-aside');
 
+// const imgAside = document.getElementById('img-aside')
+// const textAside = document.getElementById('text-aside');
+
+// Funcion para que desaparezcan los asides y aparezcan las x
 const resizeWindow = () => {
-    if(body.getBoundingClientRect().width > 1300) {
-        imgAside.classList.toggle("is-hidden")
-        textAside.classList.toggle("is-hidden")
+    if(body.getBoundingClientRect().width < 1000) {
+        imgAside.classList.add("is-hidden")
+        textAside.classList.add("is-hidden")
+
+        closeTextAside.classList.remove("is-hidden")
+        closeImgAside.classList.remove("is-hidden")
     } else {
-        imgAside.style.display = "none";
-        textAside.style.display = "none";
+        imgAside.classList.remove("is-hidden")
+        textAside.classList.add("is-hidden")
+
+        closeTextAside.classList.add("is-hidden")
+        closeImgAside.classList.add("is-hidden")
     }
 }
 
 window.addEventListener("resize", resizeWindow)
 
 
+// ------------------
 
-// const imgButton = document.getElementById('img-button');
-// const textButton = document.getElementById('text-button')
+// 2) Funcion para que la x que cierran los asides, funcionen.
+
+// Elementos del html
+
+// const closeTextAside = document.getElementById('close-text-aside');
+// const closeImgAside = document.getElementById('close-img-aside');
 
 // const imgAside = document.getElementById('img-aside')
 // const textAside = document.getElementById('text-aside');
+
+
+// Funcion para que las x funcionen
+closeTextAside.addEventListener('click', ()=>{
+    textAside.classList.add("is-hidden")
+});
+
+
+closeImgAside.addEventListener('click', ()=>{
+    imgAside.classList.add("is-hidden")
+});
+
+
 
 
 
